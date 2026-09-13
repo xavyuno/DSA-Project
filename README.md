@@ -6,7 +6,7 @@ part-a-rest-api is the REST library/resource system from question 1.
 part-b-grpc is the rental accommodation system from question 2.
 docs just has some notes so we dont have to keep checking the assignment PDF for every endpoint/function.
 
-<!-- group note: add the final member names + student numbers here before submission. also check that everyone has at least one contribution in the repo. -->
+<!-- group note(for ernst in particular): add the final member names + student numbers here before submission. also check that everyone has at least one contribution in the repo. -->
 
 ## what changed
 
@@ -156,7 +156,7 @@ The client creates users through client-side streaming, does the property operat
 
 ## upload/commit order
 
-This isnt a strict rule, its just the order that makes the repo easier to follow if we are doing separate commits.
+This isnt a strict rule, its just the order that makes the repo easier to follow if we are doing separate commits(this is after we decide what to use and/or mesh).
 
 1. `README.md` and `.gitignore`
 2. A1 files: `Ballerina.toml`, `types.bal`, `database.bal`
@@ -168,7 +168,7 @@ This isnt a strict rule, its just the order that makes the repo easier to follow
 8. B4: `part-b-grpc/client/`
 9. docs last
 
-If we are just using normal git we can add the folders together, this order is mostly useful if we want clean commits per section/person.
+If we are just using normal git(which i am) we can add the folders together, this order is mostly useful if we want clean commits per section/person.
 
 ## before submission
 
@@ -176,4 +176,4 @@ The project files are currently set to Ballerina Swan Lake `2201.13.5`.
 
 Dont commit `target/` folders.
 
-The repo has been checked for the expected files and structure, but we still need to do the proper Ballerina compile/test on the Linux VM. Tomorrow we should run both servers, both clients, try the main good cases and a few bad inputs too. If Ballerina complains about any version-specific syntax we fix that before the final push.
+The repo has been checked for the expected files and structure, but we still need to do the proper Ballerina compile/test on the Linux VM(mine-Alexander). Tomorrow we should run both servers, both clients, try the main good cases and a few bad inputs too. If Ballerina complains about any version-specific syntax we fix that before the final push.
