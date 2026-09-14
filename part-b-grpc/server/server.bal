@@ -91,29 +91,42 @@ service "RentalService" on rentalListener {
         };
     }
 
-    remote function create_users(stream<UserCreateInput, error?> clientStream)
-            returns UserCreateOutput|error {
-        int created = 0;
-        check clientStream.forEach(function(UserCreateInput input) returns error? {
-            if input.user_id == "" || input.name == "" {
-                return error("user_id and name are required");
+remote function create_users(stream<UserCreateInput, error?> clientStream)
+        returns UserCreateOutput|error {
+    int created = 0;
+
+    while true {
+        record {| UserCreateInput value; |}|error? next = clientStream.next();
+
+        if next is error {
+            return next;
+        }
+        if next is () {
+            break;
+        }
+
+        UserCreateInput input = next.value;
+
+        if input.user_id == "" || input.name == "" {
+            return error("user_id and name are required");
+        }
+        lock {
+            if users.hasKey(input.user_id) {
+                return error(string `user ${input.user_id} already exists`);
             }
-            lock {
-                if users.hasKey(input.user_id) {
-                    return error(string `user ${input.user_id} already exists`);
-                }
-                users[input.user_id] = {
-                    userId: input.user_id,
-                    name: input.name,
-                    role: input.role,
-                    email: input.email,
-                    phone: input.phone
-                };
-                created += 1;
-            }
-        });
-        return {total_created: created, message: string `${created} users created`};
+            users[input.user_id] = {
+                userId: input.user_id,
+                name: input.name,
+                role: input.role,
+                email: input.email,
+                phone: input.phone
+            };
+            created += 1;
+        }
     }
+
+    return {total_created: created, message: string `${created} users created`};
+}
 
     remote function update_property(UpdatePropertyInput input) returns AddPropertyOutput|error {
         PropertyState? current = properties[input.property_id];
@@ -314,12 +327,12 @@ function propertyToMessage(PropertyState property) returns Property {
 }
 
 function validDateRange(string checkIn, string checkOut) returns boolean {
-    time:Utc|error start = time:utcFromString(checkIn + "T00:00:00Z");
+    time:Utc|error startTime = time:utcFromString(checkIn + "T00:00:00Z");
     time:Utc|error finish = time:utcFromString(checkOut + "T00:00:00Z");
-    if start is error || finish is error {
+    if startTime is error || finish is error {
         return false;
     }
-    return start[0] < finish[0];
+    return startTime[0] < finish[0];
 }
 
 function rangesOverlap(string startA, string endA, string startB, string endB) returns boolean|error {
@@ -331,9 +344,9 @@ function rangesOverlap(string startA, string endA, string startB, string endB) r
 }
 
 function countNights(string checkIn, string checkOut) returns int|error {
-    time:Utc start = check time:utcFromString(checkIn + "T00:00:00Z");
+    time:Utc startTime = check time:utcFromString(checkIn + "T00:00:00Z");
     time:Utc finish = check time:utcFromString(checkOut + "T00:00:00Z");
-    int seconds = finish[0] - start[0];
+    int seconds = finish[0] - startTime[0];
     if seconds <= 0 {
         return error("check-out must be after check-in");
     }

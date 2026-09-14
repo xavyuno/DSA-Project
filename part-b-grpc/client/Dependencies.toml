@@ -49,55 +49,26 @@ dependencies = [
 
 [[package]]
 org = "ballerina"
-name = "data.jsondata"
-version = "1.1.4"
-dependencies = [
-	{org = "ballerina", name = "jballerina.java"},
-	{org = "ballerina", name = "lang.object"}
-]
-
-[[package]]
-org = "ballerina"
-name = "file"
-version = "1.13.1"
-dependencies = [
-	{org = "ballerina", name = "io"},
-	{org = "ballerina", name = "jballerina.java"},
-	{org = "ballerina", name = "os"},
-	{org = "ballerina", name = "time"}
-]
-
-[[package]]
-org = "ballerina"
-name = "http"
-version = "2.16.7"
+name = "grpc"
+version = "1.15.1"
 dependencies = [
 	{org = "ballerina", name = "auth"},
-	{org = "ballerina", name = "cache"},
-	{org = "ballerina", name = "constraint"},
 	{org = "ballerina", name = "crypto"},
-	{org = "ballerina", name = "data.jsondata"},
-	{org = "ballerina", name = "file"},
-	{org = "ballerina", name = "io"},
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "jwt"},
-	{org = "ballerina", name = "lang.array"},
-	{org = "ballerina", name = "lang.decimal"},
-	{org = "ballerina", name = "lang.int"},
-	{org = "ballerina", name = "lang.regexp"},
 	{org = "ballerina", name = "lang.runtime"},
-	{org = "ballerina", name = "lang.string"},
-	{org = "ballerina", name = "lang.value"},
 	{org = "ballerina", name = "log"},
-	{org = "ballerina", name = "mime"},
 	{org = "ballerina", name = "oauth2"},
-	{org = "ballerina", name = "observe"},
-	{org = "ballerina", name = "time"},
-	{org = "ballerina", name = "url"}
+	{org = "ballerina", name = "protobuf"},
+	{org = "ballerina", name = "time"}
 ]
 modules = [
-	{org = "ballerina", packageName = "http", moduleName = "http"},
-	{org = "ballerina", packageName = "http", moduleName = "http.httpscerr"}
+	{org = "ballerina", packageName = "grpc", moduleName = "grpc"},
+	{org = "ballerina", packageName = "grpc", moduleName = "grpc.types.any"},
+	{org = "ballerina", packageName = "grpc", moduleName = "grpc.types.duration"},
+	{org = "ballerina", packageName = "grpc", moduleName = "grpc.types.struct"},
+	{org = "ballerina", packageName = "grpc", moduleName = "grpc.types.timestamp"},
+	{org = "ballerina", packageName = "grpc", moduleName = "grpc.types.wrappers"}
 ]
 
 [[package]]
@@ -107,6 +78,9 @@ version = "1.8.1"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.value"}
+]
+modules = [
+	{org = "ballerina", packageName = "io", moduleName = "io"}
 ]
 
 [[package]]
@@ -145,23 +119,6 @@ version = "0.0.0"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.__internal"}
-]
-
-[[package]]
-org = "ballerina"
-name = "lang.decimal"
-version = "0.0.0"
-dependencies = [
-	{org = "ballerina", name = "jballerina.java"}
-]
-
-[[package]]
-org = "ballerina"
-name = "lang.error"
-version = "0.0.0"
-scope = "testOnly"
-dependencies = [
-	{org = "ballerina", name = "jballerina.java"}
 ]
 
 [[package]]
@@ -225,17 +182,6 @@ dependencies = [
 
 [[package]]
 org = "ballerina"
-name = "mime"
-version = "2.12.2"
-dependencies = [
-	{org = "ballerina", name = "io"},
-	{org = "ballerina", name = "jballerina.java"},
-	{org = "ballerina", name = "lang.int"},
-	{org = "ballerina", name = "log"}
-]
-
-[[package]]
-org = "ballerina"
 name = "oauth2"
 version = "2.15.0"
 dependencies = [
@@ -257,11 +203,20 @@ dependencies = [
 
 [[package]]
 org = "ballerina"
-name = "os"
-version = "1.10.1"
+name = "protobuf"
+version = "1.8.0"
 dependencies = [
-	{org = "ballerina", name = "io"},
-	{org = "ballerina", name = "jballerina.java"}
+	{org = "ballerina", name = "jballerina.java"},
+	{org = "ballerina", name = "time"}
+]
+modules = [
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf"},
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf.types.any"},
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf.types.duration"},
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf.types.empty"},
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf.types.struct"},
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf.types.timestamp"},
+	{org = "ballerina", packageName = "protobuf", moduleName = "protobuf.types.wrappers"}
 ]
 
 [[package]]
@@ -272,20 +227,6 @@ dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "time"},
 	{org = "ballerina", name = "uuid"}
-]
-
-[[package]]
-org = "ballerina"
-name = "test"
-version = "0.0.0"
-scope = "testOnly"
-dependencies = [
-	{org = "ballerina", name = "jballerina.java"},
-	{org = "ballerina", name = "lang.array"},
-	{org = "ballerina", name = "lang.error"}
-]
-modules = [
-	{org = "ballerina", packageName = "test", moduleName = "test"}
 ]
 
 [[package]]
@@ -316,27 +257,15 @@ dependencies = [
 ]
 
 [[package]]
-org = "ballerinai"
-name = "observe"
-version = "0.0.0"
-dependencies = [
-	{org = "ballerina", name = "jballerina.java"},
-	{org = "ballerina", name = "observe"}
-]
-modules = [
-	{org = "ballerinai", packageName = "observe", moduleName = "observe"}
-]
-
-[[package]]
-org = "ernst"
-name = "library_system"
+org = "dsa612s"
+name = "rental_server"
 version = "0.1.0"
 dependencies = [
-	{org = "ballerina", name = "http"},
-	{org = "ballerina", name = "test"},
-	{org = "ballerinai", name = "observe"}
+	{org = "ballerina", name = "grpc"},
+	{org = "ballerina", name = "io"},
+	{org = "ballerina", name = "protobuf"}
 ]
 modules = [
-	{org = "ernst", packageName = "library_system", moduleName = "library_system"}
+	{org = "dsa612s", packageName = "rental_server", moduleName = "rental_server"}
 ]
 
