@@ -45,5 +45,5 @@ OPTION 2: (with vs code)
 
 OPTION 3: (via python script)
 - This is not explicitly part of the project but to make connecting to the web page more easier without the need of third party software like vs code
-- open 'server.py'
+- open 'StartWebServer.py'
 - open index.html
