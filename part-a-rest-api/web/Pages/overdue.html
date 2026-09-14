@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overdue Dashboard</title>
+    <script src="overdue.js" defer></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1><a href="../index.html">Library Management System</a>/Overdue Dashboard</h1>
+
+    <form>
+        <label for="checkDate">Check date:</label>
+        <input type="date" id="checkDate" name="checkDate">
+        <table>
+        <thead>
+            <tr>
+                <th>Asset Tag</th>
+                <th>Asset Name</th>
+                <th>Institution</th>
+                 <th>Site</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="globalTable">
+            <!-- Data will be populated here -->
+        </tbody>
+    </table>
+
+        <button type="button" id="submit">Submit</button>
+    </form>
+</body>
+</html>

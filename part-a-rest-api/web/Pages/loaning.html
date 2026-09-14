@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loaning & Booking</title>
+    <script src="loaning.js" defer></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1><a href="../index.html">Library Management System</a>/Loaning</h1>
+
+    <form>
+        <label for="assetTag">Asset Tag:</label>
+        <input type="text" id="assetTag" name="assetTag" placeholder="Asset Tag">
+       
+        <label for="borrowID">Borrower Name or ID:</label>
+        <input type="text" id="borrowID" name="borrowID" placeholder="Borrower Name or ID">
+       
+        <label for="returnDate">Return Date:</label>
+        <input type="date" id="returnDate" name="returnDate">
+
+        <button type="button" id="submitLoan">Submit</button>
+    </form>
+</body>
+</html>
