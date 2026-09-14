@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <script src="booking.js" defer></script>
+    <script src="loadRooms.js" defer></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1><a href="../index.html">Library Management System</a>/Booking</h1>
+
+    <form>
+        <label for="roomTag">Room Tag:</label>
+        <select id="roomTag" name="roomTag">
+            <!-- Options will be populated here -->
+        </select>
+
+        <label for="bookedID">Booked by:</label>
+        <input type="text" id="bookedID" name="bookedID" placeholder="Your name or ID">
+        
+        <label for="bookingStartDate">Booking Start Date:</label>
+        <input type="date" id="bookingStartDate" name="bookingStartDate">
+       
+        <label for="bookingEndDate">Booking End Date:</label>
+        <input type="date" id="bookingEndDate" name="bookingEndDate">
+        
+
+        <button type="button" id="submit">Submit</button>
+    </form>
+</body>
+</html>

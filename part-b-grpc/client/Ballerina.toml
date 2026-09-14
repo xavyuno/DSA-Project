@@ -1,8 +1,8 @@
 [package]
-org = "ernst"
-name = "library_system"
+org = "dsa612s"
+name = "rental_server"
 version = "0.1.0"
 distribution = "2201.13.5"
 
 [build-options]
-observabilityIncluded = true
+observabilityIncluded = false
