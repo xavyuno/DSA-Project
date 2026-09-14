@@ -2,9 +2,10 @@ const assetTag = document.getElementById("assetTag");
 const borrower = document.getElementById("borrowID");
 const returnDate = document.getElementById("returnDate");
 const submit = document.getElementById("submit");
-submitLoan.addEventListener("click", function() {
+const APIurl = `${window.location.protocol}//${window.location.hostname}:9090/api`;
+submit.addEventListener("click", function() {
     const loanData = {borrower: borrower.value, dueDate: returnDate.value};
-    const url = `http://localhost:9090/api/assets/${assetTag.value}/loan`;
+    const url = `${APIurl}/assets/${assetTag.value}/loan`;
     console.log("url:", url);
     fetch(url, {
         method: "POST",

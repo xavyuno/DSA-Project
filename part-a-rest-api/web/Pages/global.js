@@ -1,4 +1,5 @@
-fetch("http://localhost:9090/api/assets")
+const API = `${window.location.protocol}//${window.location.hostname}:9090/api`;
+fetch(`${API}/assets`)
   .then(response => response.json())
   .then(assets => {
       const tbody = document.getElementById("globalTable");

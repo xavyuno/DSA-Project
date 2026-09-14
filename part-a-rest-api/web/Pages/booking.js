@@ -4,13 +4,14 @@ const bookingStartDate = document.getElementById("bookingStartDate");
 const bookingEndDate = document.getElementById("bookingEndDate");
 const submit = document.getElementById("submit");
 submit.addEventListener("click", function() {
+    const API = `${window.location.protocol}//${window.location.hostname}:9090/api`;
     const loanData = {
         bookedBy: bookedID.value,
         startDate: bookingStartDate.value,
         endDate: bookingEndDate.value,
         description: "Client booking"
     };
-    const url = `http://localhost:9090/api/assets/${roomTag.value}/book`;
+    const url = `${API}/assets/${roomTag.value}/book`;
     console.log("url:", url);
     fetch(url, {
         method: "POST",

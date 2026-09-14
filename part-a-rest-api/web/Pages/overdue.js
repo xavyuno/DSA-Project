@@ -1,7 +1,8 @@
 const checkDate = document.getElementById("checkDate");
 const submit = document.getElementById("submit");
+const API = `${window.location.protocol}//${window.location.hostname}:9090/api`;
 submit.addEventListener("click", function() {
-    const url = `http://localhost:9090/api/overdue?asOf=${checkDate.value}`;
+    const url = `${API}/overdue?asOf=${checkDate.value}`;
     fetch(url)
     .then(response => response.json())
     .then(assets => {

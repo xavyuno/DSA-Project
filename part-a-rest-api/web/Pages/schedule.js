@@ -3,6 +3,7 @@ const scheduleID = document.getElementById("scheduleID");
 const dueDate = document.getElementById("dueDate");
 const description = document.getElementById("description");
 const submit = document.getElementById("submit");
+const APIurl = `${window.location.protocol}//${window.location.hostname}:9090/api`;
 submit.addEventListener("click", function() {
     const Data = {
         scheduleId: scheduleID.value,
@@ -10,7 +11,7 @@ submit.addEventListener("click", function() {
         dueDate: dueDate.value,
         description: description.value
     };
-    const url = `http://localhost:9090/api/assets/${assetTag.value}/schedules`;
+    const url = `${APIurl}/assets/${assetTag.value}/schedules`;
     console.log("url:", url);
     fetch(url, {
         method: "POST",

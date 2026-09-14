@@ -2,7 +2,8 @@ const campusCode = document.getElementById("campusCode");
 const site = document.getElementById("site");
 const submit = document.getElementById("submit");
 submit.addEventListener("click", function() {
-    var url = `http://localhost:9090/api/assets?institution=${campusCode.value}`;
+    const API = `${window.location.protocol}//${window.location.hostname}:9090/api`;
+    var url = `${API}/assets?institution=${campusCode.value}`;
     if (site.value != "") {
         url += `&site=${site.value}`;
     }
@@ -22,6 +23,9 @@ submit.addEventListener("click", function() {
             `;
             tbody.appendChild(row);
         }
+    })
+    .then(data => {
+        submit.innerHTML = "Retrieved Assets";
     })
     .catch(error => {
         submit.innerHTML = "Failed to retrieve assets";

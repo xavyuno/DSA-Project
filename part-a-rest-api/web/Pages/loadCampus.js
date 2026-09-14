@@ -1,4 +1,6 @@
-fetch("http://localhost:9090/api/assets?institution")
+
+const API = `${window.location.protocol}//${window.location.hostname}:9090/api`;
+fetch(`${API}/assets?institution`)
   .then(response => response.json())
   .then(assets => {
       var loadedAssets = [];

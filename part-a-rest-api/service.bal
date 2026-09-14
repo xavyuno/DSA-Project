@@ -5,7 +5,7 @@
 // add the original contributor's name here once we check the repo history, dont guess it from this zip.
 import ballerina/http;
 
-listener http:Listener apiListener = new (9090);
+listener http:Listener apiListener = new (9090, { host: "0.0.0.0" });
 
 @http:ServiceConfig {
     cors: {
