@@ -1,7 +1,7 @@
 const assetTag = document.getElementById("assetTag");
 const borrower = document.getElementById("borrowID");
 const returnDate = document.getElementById("returnDate");
-const submit= document.getElementById("submitLoan");
+const submit = document.getElementById("submit");
 submitLoan.addEventListener("click", function() {
     const loanData = {borrower: borrower.value, dueDate: returnDate.value};
     const url = `http://localhost:9090/api/assets/${assetTag.value}/loan`;
@@ -15,7 +15,7 @@ submitLoan.addEventListener("click", function() {
     })
     .then(response => response.json())
     .then(data => {
-        submitloan.innerHTML = "Loan Submitted";
+        submit.innerHTML = "Loan Submitted";
     })
     .catch(error => {
         submit.innerHTML = "Failed to submit";

@@ -9,6 +9,21 @@ body {
     padding: 32px;
 }
 
+select {
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 10px 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
+option {
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
 label {
     display: block;
     margin-bottom: 8px;

@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campus View</title>
     <script src="campus.js" defer></script>
+    <script src="loadCampus.js" defer></script>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <h1><a href="../index.html">Library Management System</a>/Campus View</h1>
     <form>
         <label for="campusCode">Campus Code:</label>
-        <input type="text" id="campusCode" name="campusCode" placeholder="Short code for the campus">
-       
+        <select id="campusCode" name="campusCode" placeholder="Short code for the campus">
+            <!-- Options will be populated here -->
+        </select>
+
         <label for="site">Site:</label>
         <input type="text" id="site" name="site" placeholder="Site name (optional)">
        

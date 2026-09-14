@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loaning & Booking</title>
     <script src="loaning.js" defer></script>
+    <script src="loadAssets.js" defer></script>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -12,8 +13,10 @@
 
     <form>
         <label for="assetTag">Asset Tag:</label>
-        <input type="text" id="assetTag" name="assetTag" placeholder="Asset Tag">
-       
+        <select id="assetTag" name="assetTag" placeholder="Asset Tag">
+            <!-- Options will be populated here -->
+        </select>
+
         <label for="borrowID">Borrower Name or ID:</label>
         <input type="text" id="borrowID" name="borrowID" placeholder="Borrower Name or ID">
        

@@ -10,7 +10,7 @@ listener http:Listener apiListener = new (9090);
 @http:ServiceConfig {
     cors: {
         //the server the hmtl file is hosted on must be listed in allow origins to work
-        allowOrigins: ["http://127.0.0.1:5500", "http://localhost:3000"],
+        allowOrigins: ["*"],
         allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
         allowHeaders: ["Content-Type"]
     }

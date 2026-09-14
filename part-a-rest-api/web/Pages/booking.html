@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
     <script src="booking.js" defer></script>
+    <script src="loadRooms.js" defer></script>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -12,8 +13,10 @@
 
     <form>
         <label for="roomTag">Room Tag:</label>
-        <input type="text" id="roomTag" name="roomTag" placeholder="Room/lab Asset Tag">
-        
+        <select id="roomTag" name="roomTag">
+            <!-- Options will be populated here -->
+        </select>
+
         <label for="bookedID">Booked by:</label>
         <input type="text" id="bookedID" name="bookedID" placeholder="Your name or ID">
         
